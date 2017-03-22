@@ -1,0 +1,19 @@
+<h1><%= @result_task.name.capitalize %>:</h1>
+
+  <p>
+    <%= @result_task.description.capitalize %>
+  </p>
+  <p>
+    Task completed:
+    <% if @result_task.completion_date == nil %>
+      <%= "☹️ Not yet" %>
+      <% else %>
+    <%=  "🌟 #{@result_task.completion_date}" %>
+    <% end %>
+  </p>
+  </ul>
+</p>
+<p>
+
+  <%= link_to "Back to List", tasks_path %>
+</p>
