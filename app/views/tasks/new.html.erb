@@ -1,9 +1,28 @@
 
 
 <h1>Add a New Task</h1>
-<form action="/tasks" method="post">
+
+<%= form_for @task do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+
+<%= f.label :description %>
+<%= f.text_area :description, size: "60x12"%>
+
+<%= f.submit "Create" %>
+
+<% end %>
+<section>
+  <%= button_to "Back to list", tasks_path, method: :get %>
+  
+</section>
+
+
+
+<!-- <form action="/tasks" method="post">
   <form action="/tasks" method="post" accept-charset="utf-8">
-  <!-- SPECIAL INPUT TO ALLOW RAILS TO USE THIS FORM -->
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
 
@@ -26,6 +45,11 @@
 
 <input type="submit" value="Submit">
 
+<p>
+
+  <%= link_to "Back to List", tasks_path %>
+</p>
+ -->
 
 
 

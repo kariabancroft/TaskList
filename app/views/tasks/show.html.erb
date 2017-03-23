@@ -1,8 +1,8 @@
 <h1><%= @result_task.name.capitalize %>:</h1>
 
-  <p>
+  <h4>
     <%= @result_task.description.capitalize %>
-  </p>
+  </h4>
   <p>
     Task completed:
     <% if @result_task.completion_date == nil %>
@@ -15,5 +15,5 @@
 </p>
 <p>
 
-  <%= link_to "Back to List", tasks_path %>
+  <%= button_to "Back to List", tasks_path, method: :get %>
 </p>
