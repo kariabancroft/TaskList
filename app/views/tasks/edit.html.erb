@@ -1,0 +1,9 @@
+<h1>Edit Task</h1>
+<h2><%= @task.name.capitalize %>:</h2>
+
+<%= render partial: "form", locals: { action_name: "Update Task", form_method: :patch }%>
+
+
+<section>
+<%= button_to "Back to list", tasks_path, method: :get %>
+</section>

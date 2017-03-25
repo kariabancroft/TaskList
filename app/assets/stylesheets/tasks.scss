@@ -1,7 +1,6 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 body {
     background-color: lightblue;
 }
@@ -29,4 +28,12 @@ a:hover {
   background-color: white;
   color: lightblue
 
+}
+table {
+  background-color: white;
+}
+
+.delete {
+  font-size: .8em;
+  color: lightblue;
 }

@@ -4,28 +4,36 @@
 </h4>
 <table>
   <tr>
-
   <th>
     Chore
   </th>
-  <!-- <th>
-    Owner
-  </th> -->
   <th>
-    Finished
+    Owner
+  </th>
+  <th>
+    Status
   </th>
 </tr>
 <% @tasks.each do |task| %>
 <tr>
   <td>
-    <%= link_to task.description.capitalize, task_path(task.id) %>
+    <%= link_to task.name.capitalize, task_path(task.id) %>
   </td>
   <td>
-    <% if task.completion_date == nil %>
-      <%= "⚠︎" %>
+    <%= task.owner %>
+  </td>
+  <td>
+    <% if task.completion_date == nil || task.completion_date == ""%>
+      <%= link_to "☹️", complete_task_path(task.id),  method: :patch%>
     <% else %>
-      <%= "⭐️" %>
+      <%= link_to "⭐️", complete_task_path(task.id),  method: :patch%>
       <% end %>
+  </td>
+  <td>
+
+    <%=  link_to "Delete", delete_task_path(task.id),  class: "delete", data: { confirm: "Are you sure you want to delete this task?"},
+  method: :delete%>
+
   </td>
 </tr>
 
@@ -36,10 +44,11 @@
       </li>
     </ul>
   <% end %>
-  <p>
-    <%= button_to "Add a new task", new_task_path, method: :get %>
-  </p>
 </p>
 
 
 </table>
+
+<p>
+  <%= button_to "Add a new task", new_task_path, method: :get %>
+</p>

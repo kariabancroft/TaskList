@@ -2,21 +2,11 @@
 
 <h1>Add a New Task</h1>
 
-<%= form_for @task do |f| %>
+<%= render partial: "form", locals: { action_name: "Create Task", form_method: :put }%>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-
-<%= f.label :description %>
-<%= f.text_area :description, size: "60x12"%>
-
-<%= f.submit "Create" %>
-
-<% end %>
 <section>
-  <%= button_to "Back to list", tasks_path, method: :get %>
-  
+<%= button_to "Back to list", tasks_path, method: :get %>
+
 </section>
 
 
