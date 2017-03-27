@@ -1,0 +1,47 @@
+<h4><%= @tasks_list[0].owner %>'s Chore List</h4>
+
+
+<table>
+  <tr>
+  <th>
+    Chore
+  </th>
+
+  <th>
+    Status
+  </th>
+</tr>
+<% @tasks_list.each do |task| %>
+<tr>
+  <td>
+    <%= link_to task.name.capitalize, task_path(task.id) %>
+  </td>
+
+  <td>
+    <% if task.completion_date == nil || task.completion_date == ""%>
+      <%= link_to "☹️", complete_task_path(task.id),  method: :patch%>
+    <% else %>
+      <%= link_to "⭐️", complete_task_path(task.id),  method: :patch%>
+      <% end %>
+  </td>
+  <td>
+
+    <%=  link_to "Delete", delete_task_path(task.id),  class: "delete", data: { confirm: "Are you sure you want to delete this task?"},
+  method: :delete%>
+
+  </td>
+</tr>
+
+<p>
+  <ul>
+    <ul
+      <li>
+      </li>
+    </ul>
+  <% end %>
+</p>
+
+
+</table>
+
+  <%= button_to "Back to main list", tasks_path, method: :get %>

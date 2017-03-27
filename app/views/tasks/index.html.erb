@@ -20,7 +20,7 @@
     <%= link_to task.name.capitalize, task_path(task.id) %>
   </td>
   <td>
-    <%= task.owner %>
+    <%= link_to task.owner.capitalize, task_show_owner_path(task.owner) %>
   </td>
   <td>
     <% if task.completion_date == nil || task.completion_date == ""%>

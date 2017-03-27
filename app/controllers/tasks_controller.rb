@@ -8,6 +8,10 @@ class TasksController < ApplicationController
     @result_task=Task.find(params[:id])
   end
 
+  def show_owner
+    @tasks_list = Task.where(owner: params[:owner].capitalize)
+  end
+
 
   def new
     @task = Task.new
@@ -34,21 +38,19 @@ class TasksController < ApplicationController
 
   def destroy
     Task.destroy(params[:id])
-
     redirect_to tasks_path
   end
 
   def complete_task
     task=Task.find(params[:id])
-    if task.completion_date == nil || complete_task.completion_date == ""
+    if task.completion_date == nil || task.completion_date == ""
       task.completion_date = Time.now
     else
       task.completion_date = nil
-
     end
-      task.save
+    task.save
 
-    redirect_to tasks_path
+    redirect_to(:back)
   end
 
   private

@@ -4,7 +4,7 @@
     <%= @result_task.description.capitalize %>
   </h4>
   <p>
-    <%= @result_task.owner.capitalize %>
+    Assigned to: <%= link_to @result_task.owner.capitalize, task_show_owner_path(@result_task.owner) %>
   </p>
   <p>
     Task completed:
