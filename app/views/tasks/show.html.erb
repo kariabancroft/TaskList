@@ -1,22 +1,22 @@
 <h2><%= @result_task.name.capitalize %>:</h2>
 
-  <h4>
-    <%= @result_task.description.capitalize %>
-  </h4>
-  <p>
-    Assigned to: <%= link_to @result_task.owner.capitalize, task_show_owner_path(@result_task.owner) %>
-  </p>
-  <p>
-    Task completed:
-    <% if @result_task.completion_date == nil %>
-      <%= "☹️ Not yet" %>
-      <% else %>
-    <%=  "🌟 #{@result_task.completion_date}" %>
-    <% end %>
-  </p>
-  </ul>
+<h4>
+  <%= @result_task.description.capitalize %>
+</h4>
+<p>
+  Assigned to: <%= link_to @result_task.owner.capitalize, task_show_owner_path(@result_task.owner) %>
 </p>
 <p>
-<%= button_to "Edit Task", edit_task_path, method: :get %>
+  Task completed:
+  <% if @result_task.completion_date == nil %>
+  <%= "☹️ Not yet" %>
+  <% else %>
+  <%=  "🌟 #{@result_task.completion_date}" %>
+  <% end %>
+</p>
+</ul>
+</p>
+<p>
+  <%= button_to "Edit Task", edit_task_path, method: :get %>
   <%= button_to "Back to List", tasks_path, method: :get %>
 </p>
